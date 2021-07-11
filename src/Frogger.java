@@ -3,10 +3,10 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
-public class MainClass implements KeyListener {
+public class Frogger implements KeyListener {
 
 	public static void main(String[] args) {
-		MainClass mainclass = new MainClass();
+		Frogger mainclass = new Frogger();
 		mainclass.setup();
 
 	}
@@ -17,7 +17,7 @@ public class MainClass implements KeyListener {
 	public static final int width = 500;
 	public static final int height = 650;
 
-	public MainClass() {
+	public Frogger() {
 		frame = new JFrame();
 		gamepanel = new GamePanel();
 	}
