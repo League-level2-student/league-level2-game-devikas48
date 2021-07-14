@@ -90,7 +90,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.drawString("GAMEOVER", 15, 100);
 		g.setFont(title5Font);
 		g.setColor(Color.YELLOW);
-		g.drawString("You killed " + ObjectManager.getScore() + " enemies", 80, 300);
 		g.setFont(title6Font);
 		g.setColor(Color.YELLOW);
 		g.drawString("Press ENTER to restart", 45, 500);
@@ -115,6 +114,29 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
+		if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+		    if (currentState == END) {
+		        currentState = MENU;
+		    } else {
+		        currentState++;
+		    }
+		}
+		
+		if (e.getKeyCode()==KeyEvent.VK_UP) {
+		    System.out.println("UP");
+		}
+
+		if (e.getKeyCode()==KeyEvent.VK_DOWN) {
+		    System.out.println("DOWN");
+		}
+		
+		if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
+		    System.out.println("RIGHT");
+		}
+		
+		if (e.getKeyCode()==KeyEvent.VK_LEFT) {
+		    System.out.println("LEFT");
+		}
 	}
 
 	@Override
@@ -136,6 +158,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		    drawEndState(g);
 		}
 
+		
+		
 		
 	}
 
