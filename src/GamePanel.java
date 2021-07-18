@@ -29,6 +29,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int y = 550;
 	int width = 50;
 	int height = 50;
+	
+	Frog frog = new Frog(250, 550, width, height);
 
 	
 	
