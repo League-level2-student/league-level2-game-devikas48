@@ -81,7 +81,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		
 	}
 	public void drawGameState(Graphics g) {
-		
+		g.setColor(Color.BLUE);
+		g.fillRect(0, 0, Frogger.width, Frogger.height);
+		frog.draw(g);
 		
 	}
 	public void drawEndState(Graphics g)  { 
@@ -177,7 +179,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		    updateEndState();
 		}
 		
-		System.out.println("action");
 		repaint();
 		
 		
