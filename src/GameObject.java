@@ -7,6 +7,7 @@ public class GameObject {
 	 int y;
 	 int width;
 	 int height;
+	 int speed = 0;
 	 
 	 
 	 
