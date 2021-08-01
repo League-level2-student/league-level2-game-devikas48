@@ -31,6 +31,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int height = 50;
 	
 	Frog frog = new Frog(250, 550, width, height);
+	ObjectManager objectmanager = new ObjectManager(frog);
 
 	
 	
@@ -127,17 +128,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		
 		if (e.getKeyCode()==KeyEvent.VK_UP) {
-		    if (ObjectManager.frog.y < 0) {
+		    if (objectmanager.frog.y < 0) {
 		    	objectmanager.frog.y = 0;
 		    } else {
-		    	objectmanager.rocket.up();
+		    	objectmanager.frog.up();
 		    }
 		} else if (e.getKeyCode()==KeyEvent.VK_DOWN){
-			objectmanager.rocket.down();
+			objectmanager.frog.down();
 		} else if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
-			objectmanager.rocket.right();
+			objectmanager.frog.right();
 		} else if (e.getKeyCode()==KeyEvent.VK_LEFT) {
-			objectmanager.rocket.left();
+			objectmanager.frog.left();
 		}
 	}
 
