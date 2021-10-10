@@ -39,6 +39,20 @@ public class ObjectManager {
 			
 			}
 		}
+	
+	public void purgeObjects() {
+		for (int i = 0; i < logs.size(); i++) {
+			if(logs.get(i).isActive == false) {
+				logs.remove(i);
+			}
+		}
+		
+		for (int i = 0; i < cars.size(); i++) {
+			if(cars.get(i).isActive == false) {
+				cars.remove(i);
+			}
+		}	
+	
 	}
 	
 }
