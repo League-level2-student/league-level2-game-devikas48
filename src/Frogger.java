@@ -30,6 +30,10 @@ public class Frogger implements KeyListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
+	
+	public Projectile getProjectile() {
+		return new Projectile
+	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
