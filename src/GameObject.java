@@ -8,6 +8,7 @@ public class GameObject {
 	 int width;
 	 int height;
 	 int speed = 0;
+	 boolean isActive = true;
 	 
 	 
 	 

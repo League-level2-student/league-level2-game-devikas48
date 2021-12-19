@@ -31,9 +31,7 @@ public class Frogger implements KeyListener {
 
 	}
 	
-	public Projectile getProjectile() {
-		return new Projectile
-	}
+	
 
 	@Override
 	public void keyTyped(KeyEvent e) {

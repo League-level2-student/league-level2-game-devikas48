@@ -31,10 +31,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int height = 50;
 	
 	Frog frog = new Frog(250, 550, width, height);
+	Car car = new Car (100,100, width, height);
+	Log log  = new Log (200, 200, width , height);
 	ObjectManager objectmanager = new ObjectManager(frog);
 
-	carSpawn = new Timer(1000, objectManager);
-	
+	Timer carSpawn = new Timer(1000, objectmanager);
+	Timer logSpawn = new Timer(1000, objectmanager);
+
 	
 	public GamePanel() {
 		titleFont = new Font("Arial", Font.PLAIN, 48);
@@ -59,7 +62,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	
 	}
 	public void updateEndState()  {  
-			  objectmanager.draw();
 			  
 	}
 	
@@ -85,8 +87,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void drawGameState(Graphics g) {
 		g.setColor(Color.BLUE);
 		g.fillRect(0, 0, Frogger.width, Frogger.height);
-		frog.draw(g);
-		ObjectManager.addProjectile(frog.getProjectile);
+		objectmanager.draw(g);
 	}
 	public void drawEndState(Graphics g)  { 
 		g.setColor(Color.BLACK);
@@ -184,7 +185,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		repaint();
 		
 		
+	}
+	
+	
+	public void startGame( ) {
+		carSpawn = new Timer(1000 , objectmanager);
+		carSpawn.start();
 		
+		logSpawn = new Timer(1000 , objectmanager);
+		logSpawn.start();
+
 	}
 
 }
