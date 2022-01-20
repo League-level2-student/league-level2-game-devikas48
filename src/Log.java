@@ -14,7 +14,7 @@ public class Log extends GameObject {
 
 	public void draw(Graphics g) {
 
-	    g.setColor(new Color (165, 42, 42) );
+	    g.setColor(Color.black);
         g.fillRect(x, y, width, height);
 	}
 

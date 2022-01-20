@@ -4,6 +4,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.Timer;
+
 public class ObjectManager implements ActionListener{
 
 	Frog frog;
@@ -11,20 +13,25 @@ public class ObjectManager implements ActionListener{
 	ArrayList<Car> cars = new ArrayList<Car>();
 	Random random = new Random();
 	
+	Timer carSpawn = new Timer(2000, this);
+	Timer logSpawn = new Timer(5000, this);
+	
 	public ObjectManager(Frog frog) {
 		this.frog = frog;
-	addLog();
-	addCar();
+	logSpawn.start();
+	carSpawn.start();
 	
 	}
 	
+	
+	
 	public void addLog() {
-		logs.add(new Log(0,random.nextInt(Frogger.height),50,50));
+		logs.add(new Log(Frogger.width,random.nextInt(Frogger.height),50,50));
 		
 	}
 	
 	public void addCar() {
-		cars.add(new Car(0 ,random.nextInt(Frogger.height),50,50));
+		cars.add(new Car(Frogger.width ,random.nextInt(Frogger.height),50,50));
 		
 	}
 	
@@ -33,7 +40,7 @@ public class ObjectManager implements ActionListener{
 			logs.get(i).update();
 		
 			
-			if(logs.get(i).y > Frogger.height) {
+			if(logs.get(i).x < 0) {
 				logs.get(i).isActive = false;
 			}
 		}
@@ -41,8 +48,8 @@ public class ObjectManager implements ActionListener{
 		for (int i = 0; i < cars.size(); i++) {
 			cars.get(i).update();
 		
-			if(logs.get(i).y > Frogger.height) {
-				logs.get(i).isActive = false;
+			if(cars.get(i).x < 0) {
+				cars.get(i).isActive = false;
 			}
 			
 			}
@@ -87,6 +94,13 @@ public class ObjectManager implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+		
+		if(e.getSource() == logSpawn) {
+			addLog();
+			logSpawn.setDelay((random.nextInt(4) + 1) * 1000);
+		} else if (e.getSource() == carSpawn) {
+			addCar();
+		}
 	}
 	
 }

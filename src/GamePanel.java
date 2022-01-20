@@ -25,6 +25,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer frameDraw;
 	
 	
+	
 	int x = 250;
 	int y = 550;
 	int width = 50;
@@ -35,8 +36,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Log log  = new Log (200, 200, width , height);
 	ObjectManager objectmanager = new ObjectManager(frog);
 
-	Timer carSpawn = new Timer(1000, objectmanager);
-	Timer logSpawn = new Timer(1000, objectmanager);
+	
 
 	
 	public GamePanel() {
@@ -128,7 +128,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		        currentState++;
 		    }
 		    
-		    startGame();
 		}
 		
 		if (e.getKeyCode()==KeyEvent.VK_UP) {
@@ -188,13 +187,5 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 	
 	
-	public void startGame( ) {
-		carSpawn = new Timer(1000 , objectmanager);
-		carSpawn.start();
-		
-		logSpawn = new Timer(1000 , objectmanager);
-		logSpawn.start();
-
-	}
-
+	
 }
