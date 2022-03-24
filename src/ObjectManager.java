@@ -53,7 +53,25 @@ public class ObjectManager implements ActionListener{
 			}
 			
 			}
+		
+		
+			frog.update();
+	
+
+		
+		
+		if(frog.isActive == false) {
+			GamePanel.currentState = GamePanel.END;
 		}
+		
+		checkCollision();
+		purgeObjects();
+		
+		
+		}
+	
+	
+	
 	
 	public void purgeObjects() {
 		for (int i = 0; i < logs.size(); i++) {
@@ -88,6 +106,26 @@ public class ObjectManager implements ActionListener{
 		frog.draw(g);
 		}
 	
+	
+	public void checkCollision() {
+		for (int i = 0; i < cars.size(); i++) {
+			if(frog.collisionBox.intersects(cars.get(i).collisionBox)) {
+				cars.get(i).isActive = false;
+				frog.isActive = false;
+				
+				
+		}
+		
+	}
+		
+		
+		for (int i = 0; i < logs.size(); i++) {
+			if(frog.collisionBox.intersects(logs.get(i).collisionBox)) {
+				cars.get(i).isActive = false;
+				frog.isActive = false;
+		}
+	}
+	}
 
 
 	@Override

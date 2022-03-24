@@ -1,15 +1,19 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
 public class Car extends GameObject{
+	
+	Random ran = new Random();
 
 	public Car(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		speed = 1;
+		speed = ran.nextInt(5)+1;
 	}
 	
 	
-	void update() {
+	public void update() {
+		super.update();
 		x-= speed;
 	}
 	
