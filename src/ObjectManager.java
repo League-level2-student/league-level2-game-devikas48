@@ -121,7 +121,7 @@ public class ObjectManager implements ActionListener{
 		
 		for (int i = 0; i < logs.size(); i++) {
 			if(frog.collisionBox.intersects(logs.get(i).collisionBox)) {
-				cars.get(i).isActive = false;
+				logs.get(i).isActive = false;
 				frog.isActive = false;
 		}
 	}

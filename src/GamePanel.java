@@ -31,7 +31,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int width = 50;
 	int height = 50;
 	
-	Frog frog = new Frog(250, 550, width, height);
+	Frog frog = new Frog(250, 500, width, height);
 	Car car = new Car (100,100, width, height);
 	Log log  = new Log (200, 200, width , height);
 	ObjectManager objectmanager = new ObjectManager(frog);
@@ -69,17 +69,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	
 	public void drawMenuState(Graphics g) { 
 		
-		g.setColor(Color.GREEN);
+		g.setColor(Color.BLUE);
 		g.fillRect(0, 0, Frogger.width, Frogger.height);
 		g.setFont(titleFont);
 		g.setColor(Color.WHITE);
-		g.drawString("FROGGER", 100, 100);
+		g.drawString("FROGGER", 130, 200);
 		g.setFont(title2Font);
 		g.setColor(Color.YELLOW);
-		g.drawString("Press ENTER to start", 80, 300);
+		g.drawString("Press ENTER to start", 110, 300);
 		g.setFont(title3Font);
 		g.setColor(Color.YELLOW);
-		g.drawString("Press SPACE for instructions", 45, 500);
+		g.drawString("Press SPACE for instructions", 70, 400);
 		
 
 		
@@ -94,12 +94,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.fillRect(0, 0, Frogger.width, Frogger.height);
 		g.setFont(title4Font);
 		g.setColor(Color.YELLOW);
-		g.drawString("GAMEOVER", 15, 100);
+		g.drawString("GAMEOVER", 150, 200);
 		g.setFont(title5Font);
 		g.setColor(Color.YELLOW);
 		g.setFont(title6Font);
 		g.setColor(Color.YELLOW);
-		g.drawString("Press ENTER to restart", 45, 500);
+		g.drawString("Press ENTER to restart", 85, 300);
 	}
 		
 		
@@ -126,29 +126,40 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		        currentState = MENU;
 		    } else {
 		        currentState++;
+		        if(currentState == GAME) {
+		        	frog.isActive = true;
+		        	frog.x = 250;
+		        	frog.y = 500;
+		        }
 		    }
 		    
 		}
 		
 		if (e.getKeyCode()==KeyEvent.VK_UP) {
-		    if (objectmanager.frog.y < 0) {
-		    	objectmanager.frog.y = 0;
-		    } else {
-		    	objectmanager.frog.up();
-		    }
+		   
+		    	objectmanager.frog.up(true);
+		
 		} else if (e.getKeyCode()==KeyEvent.VK_DOWN){
-			objectmanager.frog.down();
+			objectmanager.frog.down(true);
 		} else if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
-			objectmanager.frog.right();
+			objectmanager.frog.right(true);
 		} else if (e.getKeyCode()==KeyEvent.VK_LEFT) {
-			objectmanager.frog.left();
+			objectmanager.frog.left(true);
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		if (e.getKeyCode()==KeyEvent.VK_UP) {
+			objectmanager.frog.up(false);
+		} else if (e.getKeyCode()==KeyEvent.VK_DOWN){
+			objectmanager.frog.down(false);
+		} else if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
+			objectmanager.frog.right(false);
+		} else if (e.getKeyCode()==KeyEvent.VK_LEFT) {
+			objectmanager.frog.left(false);
+		}
 	}
 	
 	

@@ -6,9 +6,15 @@ import javax.imageio.ImageIO;
 
 public class Frog extends GameObject {
 
+	boolean up;
+	boolean down;
+	boolean right;
+	boolean left;
+	
+	
 	public Frog(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		speed = 10;
+		speed = 5;
 		
 		if (needImage) {
 		    loadImage ("frog.png");
@@ -26,20 +32,21 @@ public class Frog extends GameObject {
 	public static boolean gotImage = false;	
 	
 
-	public void right() {
-		x += speed;
+	public void right(boolean active) {
+		right = active;
 	}
 
-	public void left() {
-		x -= speed;
+	public void left(boolean active) {
+		left = active;
+		
 	}
 
-	public void up() {
-		y -= speed;
+	public void up(boolean active) {
+		up = active;
 	}
 
-	public void down() {
-		y += speed;
+	public void down(boolean active) {
+		down = active;
 	}
 
 	
@@ -55,6 +62,24 @@ public class Frog extends GameObject {
 	    }
 	}
 	
+	public void update() {
+		super.update();
+		if(up ==  true) {
+			y-=speed;
+		}
+		if(down ==  true) {
+			y+=speed;
+		}
+
+		if(left ==  true) {
+			x-=speed;
+		}
+
+		if(right ==  true) {
+			x+=speed;
+		}
+
+	}
 	
 	
 	
