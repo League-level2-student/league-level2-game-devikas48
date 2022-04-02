@@ -1,9 +1,11 @@
+import java.applet.AudioClip;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.JApplet;
 import javax.swing.Timer;
 
 public class ObjectManager implements ActionListener{
@@ -92,7 +94,6 @@ public class ObjectManager implements ActionListener{
 	
 	
 	public void draw(Graphics g) {
-		for (int i = 0; i < logs.size(); i++) {
 			logs.get(i).draw(g);
 		
 		}
@@ -112,7 +113,7 @@ public class ObjectManager implements ActionListener{
 			if(frog.collisionBox.intersects(cars.get(i).collisionBox)) {
 				cars.get(i).isActive = false;
 				frog.isActive = false;
-				
+		playSound();
 				
 		}
 		
@@ -123,8 +124,15 @@ public class ObjectManager implements ActionListener{
 			if(frog.collisionBox.intersects(logs.get(i).collisionBox)) {
 				logs.get(i).isActive = false;
 				frog.isActive = false;
+		playSound();
+				}
+						
 		}
 	}
+	
+	private void playSound(String fileName) {
+	     AudioClip sound = JApplet.newAudioClip(getClass().getResource(fileName)); 
+	     sound.play();
 	}
 
 
