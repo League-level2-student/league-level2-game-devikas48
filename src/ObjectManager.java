@@ -94,9 +94,11 @@ public class ObjectManager implements ActionListener{
 	
 	
 	public void draw(Graphics g) {
-			logs.get(i).draw(g);
 		
-		}
+		for (int i = 0; i < logs.size(); i++) {
+			logs.get(i).draw(g);
+		}	
+		
 		
 		for (int i = 0; i < cars.size(); i++) {
 			cars.get(i).draw(g);
@@ -107,13 +109,13 @@ public class ObjectManager implements ActionListener{
 		frog.draw(g);
 		}
 	
-	
+
 	public void checkCollision() {
 		for (int i = 0; i < cars.size(); i++) {
 			if(frog.collisionBox.intersects(cars.get(i).collisionBox)) {
 				cars.get(i).isActive = false;
 				frog.isActive = false;
-		playSound();
+		playSound("crash.wav");
 				
 		}
 		
@@ -124,11 +126,14 @@ public class ObjectManager implements ActionListener{
 			if(frog.collisionBox.intersects(logs.get(i).collisionBox)) {
 				logs.get(i).isActive = false;
 				frog.isActive = false;
-		playSound();
+		playSound("crash.wav");
 				}
 						
 		}
 	}
+	
+	
+	
 	
 	private void playSound(String fileName) {
 	     AudioClip sound = JApplet.newAudioClip(getClass().getResource(fileName)); 

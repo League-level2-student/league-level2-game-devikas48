@@ -12,9 +12,10 @@ import javax.swing.Timer;
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	
-	public static final int MENU = 0;
-	public static final int GAME = 1;
-	public static final int END = 2;
+	public static final int MENU = 1;
+	public static final int GAME = 2;
+	public static final int END = 3;
+	public static final int INSTRUCTIONS = 0;
     public static int currentState = MENU;
     Font titleFont;
     Font title2Font;
@@ -65,7 +66,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			  
 	}
 	
-	
+	public void drawInstructionsState(Graphics g) {
+		g.setColor(Color.WHITE);
+		
+	}
 	
 	public void drawMenuState(Graphics g) { 
 		

@@ -78,6 +78,10 @@ public class Frog extends GameObject {
 		if(right ==  true) {
 			x+=speed;
 		}
+		
+		if(y < 0) {
+			y = 500;
+		}
 
 	}
 	
