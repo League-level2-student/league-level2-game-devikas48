@@ -23,6 +23,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font title4Font;
 	Font title5Font;
 	Font title6Font;
+	Font instructionsFont;
 	Timer frameDraw;
 	
 	
@@ -47,6 +48,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		title4Font = new Font("Arial", Font.PLAIN, 30);
 		title4Font = new Font("Arial", Font.PLAIN, 30);
 		title6Font = new Font("Arial", Font.PLAIN, 30);
+		instructionsFont = new Font("Arial", Font.PLAIN, 30);
 		frameDraw = new Timer(1000/60,this);
 		frameDraw.start();
 	}
@@ -68,6 +70,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	
 	public void drawInstructionsState(Graphics g) {
 		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, Frogger.width, Frogger.height);
+		g.setFont(instructionsFont);
+		g.setColor(Color.BLACK);
+		g.drawString("INSTRUCTIONS", 110, 200);
+		g.setColor(Color.BLACK);
+		g.drawString("- move the frog with the up/down and left/right keys", 110, 300);
+		g.setColor(Color.BLACK);
+		g.drawString("- move the frog with the up/down and left/right keys", 80, 300);
+
 		
 	}
 	
@@ -139,6 +150,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		    
 		}
 		
+		if (e.getKeyCode()==KeyEvent.VK_SPACE) {
+			currentState = INSTRUCTIONS;
+		}
+		
+		
+		
+		
 		if (e.getKeyCode()==KeyEvent.VK_UP) {
 		   
 		    	objectmanager.frog.up(true);
@@ -177,6 +195,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		    drawGameState(g);
 		}else if(currentState == END){
 		    drawEndState(g);
+		}else if (currentState == INSTRUCTIONS) {
+			drawInstructionsState(g);
 		}
 
 		

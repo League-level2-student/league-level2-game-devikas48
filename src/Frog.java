@@ -11,25 +11,34 @@ public class Frog extends GameObject {
 	boolean right;
 	boolean left;
 	
+	public static BufferedImage image;
+	public static boolean needImage = true;
+	public static boolean gotImage = false;	
 	
 	public Frog(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		speed = 5;
 		
 		if (needImage) {
-		    loadImage ("frog.png");
+		    loadImage ("frog.jpeg");
 		}
 		// TODO Auto-generated constructor stub
 	}
 
 	public void draw(Graphics g) {
-		g.setColor(Color.GREEN);
-		g.fillRect(x, y, width, height);
+		
+		
+		if (gotImage) {
+			g.drawImage(image, x, y, width, height, null);
+		} else {
+			g.setColor(Color.GREEN);
+			g.fillRect(x, y, width, height);
+		}
+
 	}
 	
-	public static BufferedImage image;
-	public static boolean needImage = true;
-	public static boolean gotImage = false;	
+	
+	
 	
 
 	public void right(boolean active) {
