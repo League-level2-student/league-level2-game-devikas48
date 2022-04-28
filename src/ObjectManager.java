@@ -25,6 +25,12 @@ public class ObjectManager implements ActionListener{
 	
 	}
 	
+static int score = 0;
+	
+	public int getScore () {
+		return score;
+	}
+	
 	
 	
 	public void addLog() {

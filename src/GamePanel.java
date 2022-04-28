@@ -73,11 +73,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.fillRect(0, 0, Frogger.width, Frogger.height);
 		g.setFont(instructionsFont);
 		g.setColor(Color.BLACK);
-		g.drawString("INSTRUCTIONS", 110, 200);
+		g.drawString("INSTRUCTIONS", 130, 80);
 		g.setColor(Color.BLACK);
-		g.drawString("- move the frog with the up/down and left/right keys", 110, 300);
-		g.setColor(Color.BLACK);
-		g.drawString("- move the frog with the up/down and left/right keys", 80, 300);
+		g.drawString("- move the frog with the up/down", 50, 150);
+		g.drawString("and left/right keys", 50, 200);
+		g.drawString("- try to get to the other side", 50, 250);
+		g.drawString("without running into any cars or", 50, 300);
+		g.drawString("logs", 50, 350);
+		g.drawString(" - the game ends after you get 5", 50, 400);
+		g.drawString("points", 50, 450);
 
 		
 	}
