@@ -90,7 +90,7 @@ public class Frog extends GameObject {
 		
 		if(y < 0) {
 			ObjectManager.score++;
-			if(ObjectManager.score < 5) {
+			if(ObjectManager.score >= 5) {
 				GamePanel.currentState = GamePanel.END;
 			}
 			y = 500;
