@@ -49,7 +49,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		title4Font = new Font("Arial", Font.PLAIN, 30);
 		title4Font = new Font("Arial", Font.PLAIN, 30);
 		title6Font = new Font("Arial", Font.PLAIN, 30);
-		instructionsFont = new Font("Arial", Font.PLAIN, 30);
+		instructionsFont = new Font("Arial", Font.ROMAN_BASELINE, 30);
 		scoreFont = new Font("Arial", Font.PLAIN, 20);
 		frameDraw = new Timer(1000/60,this);
 		frameDraw.start();
@@ -71,17 +71,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 	
 	public void drawInstructionsState(Graphics g) {
-		g.setColor(Color.WHITE);
+		g.setColor(Color.MAGENTA);
 		g.fillRect(0, 0, Frogger.width, Frogger.height);
 		g.setFont(instructionsFont);
 		g.setColor(Color.BLACK);
 		g.drawString("INSTRUCTIONS", 130, 80);
 		g.setColor(Color.BLACK);
-		g.drawString("- move the frog with the up/down", 50, 150);
-		g.drawString("and left/right keys", 50, 200);
-		g.drawString("- try to get to the other side", 50, 250);
-		g.drawString("without running into any cars or", 50, 300);
-		g.drawString("logs", 50, 350);
+		g.drawString("- move the frog with the", 50, 150);
+		g.drawString("up/down and left/right arrow keys", 50, 200);
+		g.drawString("- try to get the frog to the other", 50, 250);
+		g.drawString("side without running into any cars", 50, 300);
+		g.drawString(" or logs", 50, 350);
 		g.drawString(" - the game ends after you get 5", 50, 400);
 		g.drawString("points", 50, 450);
 

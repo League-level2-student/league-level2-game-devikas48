@@ -18,7 +18,7 @@ public class Car extends GameObject{
 		speed = ran.nextInt(5)+1;
 
 		if (needImage) {
-		    loadImage ("car.jpeg");
+		    loadImage ("car.png");
 		}
 	}
 	
