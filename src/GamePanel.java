@@ -112,7 +112,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.drawString("1", 220, 500);
 		g.drawString("2", 320, 500);
 		g.drawString("3", 420, 500);
-
+//hi//
 		
 	}
 	public void drawGameState(Graphics g) {
