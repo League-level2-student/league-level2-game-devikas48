@@ -10,24 +10,23 @@ public class Frog extends GameObject {
 	boolean down;
 	boolean right;
 	boolean left;
-	
+
 	public static BufferedImage image;
 	public static boolean needImage = true;
-	public static boolean gotImage = false;	
-	
+	public static boolean gotImage = false;
+
 	public Frog(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		speed = 5;
-		
+
 		if (needImage) {
-		    loadImage ("frog.jpeg");
+			loadImage("frog.jpeg");
 		}
 		// TODO Auto-generated constructor stub
 	}
 
 	public void draw(Graphics g) {
-		
-		
+
 		if (gotImage) {
 			g.drawImage(image, x, y, width, height, null);
 		} else {
@@ -36,10 +35,6 @@ public class Frog extends GameObject {
 		}
 
 	}
-	
-	
-	
-	
 
 	public void right(boolean active) {
 		right = active;
@@ -47,7 +42,7 @@ public class Frog extends GameObject {
 
 	public void left(boolean active) {
 		left = active;
-		
+
 	}
 
 	public void up(boolean active) {
@@ -58,46 +53,43 @@ public class Frog extends GameObject {
 		down = active;
 	}
 
-	
 	void loadImage(String imageFile) {
-	    if (needImage) {
-	        try {
-	            image = ImageIO.read(this.getClass().getResourceAsStream(imageFile));
-		    gotImage = true;
-	        } catch (Exception e) {
-	            
-	        }
-	        needImage = false;
-	    }
+		if (needImage) {
+			try {
+				image = ImageIO.read(this.getClass().getResourceAsStream(imageFile));
+				gotImage = true;
+			} catch (Exception e) {
+
+			}
+			needImage = false;
+		}
 	}
-	
+
 	public void update() {
 		super.update();
-		if(up ==  true) {
-			y-=speed;
+		if (up == true) {
+			y -= speed;
 		}
-		if(down ==  true) {
-			y+=speed;
-		}
-
-		if(left ==  true) {
-			x-=speed;
+		if (down == true) {
+			y += speed;
 		}
 
-		if(right ==  true) {
-			x+=speed;
+		if (left == true) {
+			x -= speed;
 		}
-		
-		if(y < 0) {
+
+		if (right == true) {
+			x += speed;
+		}
+
+		if (y < 0) {
 			ObjectManager.score++;
-			if(ObjectManager.score >= 5) {
+			if (ObjectManager.score >= 5) {
 				GamePanel.currentState = GamePanel.END;
 			}
 			y = 500;
 		}
 
 	}
-	
-	
-	
+
 }
